@@ -1,0 +1,3 @@
+[submodule "layers/xuyizhe-frontend"]
+	path = layers/xuyizhe-frontend
+	url = https://github.com/xuyizhe/spacemacs-frontend-layer.git
