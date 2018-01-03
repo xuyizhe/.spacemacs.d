@@ -12,7 +12,8 @@
 ;;; Code:
 
 (defconst xuyizhe-misc-packages
-  '(markdown-preview-mode))
+  '(markdown-preview-mode
+    sql))
 
 ;; https://github.com/ancane/markdown-preview-mode#remote-access
 ;; Markdown preview websocket server port: 7379
@@ -24,3 +25,9 @@
     (setq markdown-preview-http-host "0.0.0.0")
     (setq markdown-preview-auto-open 'nil)))
 
+(defun xuyizhe-misc/post-init-sql ()
+  (setq sql-postgres-login-params
+        '((user :default "postgres")
+          (database :default "postgres")
+          (server :default "localhost")
+          (port :default 5432))))
