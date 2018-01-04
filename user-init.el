@@ -10,7 +10,7 @@
           ("org-cn"   . "http://elpa.emacs-china.org/org/")
           ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/"))))
 
-(defun elpa-archives-tuna()
+(defun elpa-archives-tuna ()
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
 	        ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
