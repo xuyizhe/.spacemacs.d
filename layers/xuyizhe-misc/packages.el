@@ -13,6 +13,7 @@
 
 (defconst xuyizhe-misc-packages
   '(markdown-preview-mode
+    fsharp-mode
     sql))
 
 ;; https://github.com/ancane/markdown-preview-mode#remote-access
@@ -31,3 +32,6 @@
           (database :default "postgres")
           (server :default "localhost")
           (port :default 5432))))
+
+(defun xuyizhe-misc/post-init-fsharp-mode ()
+  (setq fsharp-indent-offset 2))
