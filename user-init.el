@@ -16,6 +16,12 @@
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))))
 
-(elpa-archives-emacschina--dev)
+(defun elpa-archives-tuna--dev ()
+  (setq configuration-layer-elpa-archives
+        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))))
+
+(elpa-archives-tuna--dev)
 
 (provide 'user-init)
