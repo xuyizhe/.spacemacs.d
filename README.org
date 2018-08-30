@@ -17,5 +17,11 @@ Make sure [[https://github.com/syl20bnr/spacemacs][syl20bnr/spacemacs]] is insta
   mv ~/.spacemacs ~/.spacemacs.bak
   mv ~/.spacemacs.d ~/.spacemacs.d.bak
 
-  git clone https://github.com/xuyizhe/.spacemacs.d.git ~/.spacemacs.d
+  git clone --recurse-submodules https://github.com/xuyizhe/.spacemacs.d.git ~/.spacemacs.d
+
+  # Update
+  git pull --recurse-submodules
+
+  # Update submodules
+  git submodule update --remote --recursive
 #+END_SRC
