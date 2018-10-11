@@ -11,4 +11,9 @@
 
 ;; Prerequisites
 
-(configuration-layer/declare-layer 'sql)
+(configuration-layer/declare-layer
+ '(sql
+   (chinese :variables
+            chinese-enable-fcitx nil
+            chinese-enable-youdao-dict t)
+   ))

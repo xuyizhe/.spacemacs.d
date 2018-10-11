@@ -4,10 +4,10 @@
 [[file:screenshots/2018-08-30-130500_1920x1080_scrot.png]]
 
 
-  | System    | Manjaro   |
-  | Desktop   | i3        |
-  | Emacs     | 26.1      |
-  | Spacemacs | v.0.300.0 |
+  | System    | Manjaro            |
+  | Desktop   | i3wm               |
+  | Emacs     | 26.1               |
+  | Spacemacs | v.0.300.0(develop) |
   
 * Install
 
