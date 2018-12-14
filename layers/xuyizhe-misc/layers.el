@@ -12,8 +12,8 @@
 ;; Prerequisites
 
 (configuration-layer/declare-layer
- '(sql
+ '((markdown :variables markdown-live-preview-engine 'vmd)
+   sql
    (chinese :variables
             chinese-enable-fcitx nil
-            chinese-enable-youdao-dict t)
-   ))
+            chinese-enable-youdao-dict t)))
