@@ -1,7 +1,8 @@
-(defun eclim-config ()
-  (setq eclim-eclipse-dirs "~/opt/eclipse"
-        eclim-executable "~/opt/eclipse/eclim"))
+(push "~/.spacemacs.d/lisp" load-path)
 
-;; (eclim-config)
+;; (require 'init-eclim)
+;;_(require 'init-web)
+
+(global-undo-tree-mode 0)
 
 (provide 'user-config)

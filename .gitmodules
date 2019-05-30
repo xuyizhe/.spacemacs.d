@@ -1,3 +1,9 @@
 [submodule "layers/xuyizhe-frontend"]
 	path = layers/xuyizhe-frontend
 	url = https://github.com/xuyizhe/spacemacs-frontend-layer.git
+[submodule "layers/xah-fly-keys"]
+	path = layers/xah-fly-keys
+	url = https://github.com/gcentauri/xah-fly-keys-layer.git
+[submodule "layers/vue"]
+	path = layers/vue
+	url = https://github.com/thanhvg/vue.git
