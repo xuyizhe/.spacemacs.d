@@ -1,22 +1,12 @@
 #+TITLE: My Spacemacs configuration
 
-
-[[file:screenshots/2018-08-30-130500_1920x1080_scrot.png]]
-
-
-  | System    | Manjaro            |
-  | Desktop   | i3wm               |
-  | Emacs     | 26.1               |
+  | System    | macOS 10.15.1      |
+  | Emacs     | 26.3               |
   | Spacemacs | v.0.300.0(develop) |
   
 * Install
 
-Make sure [[https://github.com/syl20bnr/spacemacs][syl20bnr/spacemacs]] is installed.
-
 #+BEGIN_SRC shell
-  mv ~/.spacemacs ~/.spacemacs.bak
-  mv ~/.spacemacs.d ~/.spacemacs.d.bak
-
   git clone --recurse-submodules https://github.com/xuyizhe/.spacemacs.d.git ~/.spacemacs.d
 
   # Update

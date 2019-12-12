@@ -22,6 +22,6 @@
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))))
 
-(elpa-archives-tuna--dev)
+(elpa-archives-emacschina--dev)
 
 (provide 'init-elpa)

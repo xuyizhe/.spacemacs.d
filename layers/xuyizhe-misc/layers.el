@@ -12,8 +12,12 @@
 ;; Prerequisites
 
 (configuration-layer/declare-layer
- '((markdown :variables markdown-live-preview-engine 'vmd)
-   sql
-   (chinese :variables
-            chinese-enable-fcitx nil
-            chinese-enable-youdao-dict t)))
+ '(
+   ;; fsharp
+   ;; (markdown :variables
+   ;;           markdown-live-preview-engine 'vmd
+   ;;           markdown-mmm-auto-modes '("c" "c++" "javascript" "python" "typescript" ("elisp" "emacs-lisp")))
+   (sql :variables
+        sql-capitalize-keywords t
+        sql-capitalize-keywords-blacklist '("name" "varchar")
+        sql-auto-indent t)))

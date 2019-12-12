@@ -12,19 +12,23 @@
 ;;; Code:
 
 (defconst xuyizhe-misc-packages
-  '(markdown-preview-mode
+  '(
+    ;; markdown-preview-mode
     fsharp-mode
-    sql))
+    sql
+    ;; company
+    ;; (company-tabnine :requires company)
+    ))
 
 ;; https://github.com/ancane/markdown-preview-mode#remote-access
 ;; Markdown preview websocket server port: 7379
 ;; Markdown preview http server port: 9000
-(defun xuyizhe-misc/init-markdown-preview-mode ()
-  (use-package markdown-preview-mode
-    :init
-    (setq markdown-preview-host "0.0.0.0")
-    (setq markdown-preview-http-host "0.0.0.0")
-    (setq markdown-preview-auto-open 'nil)))
+;; (defun xuyizhe-misc/init-markdown-preview-mode ()
+;;   (use-package markdown-preview-mode
+;;     :init
+;;     (setq markdown-preview-host "0.0.0.0")
+;;     (setq markdown-preview-http-host "0.0.0.0")
+;;     (setq markdown-preview-auto-open 'nil)))
 
 (defun xuyizhe-misc/post-init-sql ()
   (setq sql-postgres-login-params
@@ -34,4 +38,4 @@
           (port :default 5432))))
 
 (defun xuyizhe-misc/post-init-fsharp-mode ()
-  (setq fsharp-indent-offset 2))
+  (setq fsharp-indent-offset indent-level))
