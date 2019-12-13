@@ -137,7 +137,8 @@ This function should only modify configuration layer settings."
                  javascript-import-tool 'import-js
                  javascript-backend 'lsp
                  javascript-fmt-tool 'prettier
-                 javascript-repl `nodejs)
+                 javascript-repl `nodejs
+                 js-indent-level 2)
      (json :variables
            json-fmt-tool 'prettier
            json-fmt-on-save t)

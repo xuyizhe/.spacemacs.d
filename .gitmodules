@@ -1,10 +1,10 @@
 [submodule "layers/xah-fly-keys"]
 	path = layers/xah-fly-keys
 	url = https://github.com/gcentauri/xah-fly-keys-layer.git
-[submodule "layers/xuyizhe-web"]
-	path = layers/xuyizhe-web
-	url = https://github.com/xuyizhe/web-layer.git
 [submodule "layers/tabnine"]
 	path = layers/tabnine
 	url = https://github.com/xuyizhe/memacs.git
 	branch = tabnine
+[submodule "layers/xuyizhe-web"]
+	path = layers/xuyizhe-web
+	url = https://github.com/xuyizhe/web-layer.git
