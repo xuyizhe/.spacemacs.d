@@ -4,7 +4,7 @@
 [submodule "layers/xuyizhe-web"]
 	path = layers/xuyizhe-web
 	url = https://github.com/xuyizhe/web-layer.git
-[submodule "layers/memacs-tabnine"]
-	path = layers/memacs-tabnine
+[submodule "layers/tabnine"]
+	path = layers/tabnine
 	url = https://github.com/xuyizhe/memacs.git
 	branch = tabnine
