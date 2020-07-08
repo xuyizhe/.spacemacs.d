@@ -10,11 +10,14 @@ gem specific_install https://github.com/Sweetchuck/scss_lint_reporter_checkstyle
 
 
 npm install -g \
+    babel-eslint \
     prettier \
     # js-beautify \
     import-js \
     eslint \
     eslint-cli \
+    eslint-plugin-react \
+    # flow-bin \
     typescript \
     tslint \
     typescript-language-server \

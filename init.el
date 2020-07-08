@@ -101,9 +101,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      phoenix
      react
-     (vue :variables
-          vue-backend 'lsp
-          node-add-modules-path t)
+     (vue :variables vue-backend 'lsp)
 
      ;; ----------------------------------------------------------------
      ;; International support
@@ -137,8 +135,12 @@ This function should only modify configuration layer settings."
                  javascript-import-tool 'import-js
                  javascript-backend 'lsp
                  javascript-fmt-tool 'prettier
+                 javascript-fmt-on-save t
                  javascript-repl `nodejs
-                 js-indent-level 2)
+                 js-indent-level 2
+                 js2-basic-offset 2
+                 js2-mode-show-strict-warnings nil
+                 js2-mode-show-parse-errors nil)
      (json :variables
            json-fmt-tool 'prettier
            json-fmt-on-save t)
@@ -216,13 +218,14 @@ This function should only modify configuration layer settings."
      (colors :variables
              ;; colors-colorize-identifiers 'all
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
-     ;; themes-megapack
+     themes-megapack
 
      ;; ----------------------------------------------------------------
      ;; Tools
      ;; ----------------------------------------------------------------
      ansible
      ;; bm
+     ;; (chrome :variables chrome-exec-path "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
      command-log
      dap
      (docker :variables docker-dockerfile-backend 'lsp)
@@ -231,8 +234,9 @@ This function should only modify configuration layer settings."
      kubernetes
      lsp
      nginx
-     node
+     (node :variables node-add-modules-path t)
      ;; pandoc
+     prettier
      ;; rebox
      restclient
      (shell :variables
@@ -242,16 +246,14 @@ This function should only modify configuration layer settings."
             ;; shell-default-full-span nil
             shell-enable-smart-eshell t)
      systemd
-     vagrant
-
-
+     ;; vagrant
 
      ;; ----------------------------------------------------------------
      ;; Custom
      ;; ----------------------------------------------------------------
      (xah-fly-keys :variables xah-fly-keys-layout "qwerty")
      (xuyizhe-web :variables indent-level 2)
-     (xuyizhe-misc :variables indent-level 2)
+     ;; (xuyizhe-misc :variables indent-level 2)
      tabnine
      )
 
@@ -388,6 +390,8 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(doom-city-lights
+                         twilight-bright
+                         hemisu-light
                          ;; dichromacy
                          ;; poet-dark
                          spacemacs-light
@@ -407,8 +411,9 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Iosevka"
-                               :size 16.0
+   dotspacemacs-default-font '("Menlo"
+                               ;; "Iosevka"
+                               :size 17.0
                                :weight normal
                                :width normal)
 
