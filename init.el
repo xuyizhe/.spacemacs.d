@@ -151,7 +151,7 @@ This function should only modify configuration layer settings."
      (python :variables python-backend 'anaconda)
      racket
      (ruby :variables ruby-backend 'robe)
-     ;; rust
+     (rust :variables rust-backend 'racer)
      ;; scala
      (shell-scripts :variables shell-scripts-backend nil)
      (solidity :variables
@@ -680,3 +680,23 @@ before packages are loaded."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (toml-mode racer helm-gtags helm helm-core ggtags flycheck-rust counsel-gtags cargo rust-mode zenburn-theme zen-and-art-theme youdao-dictionary yasnippet-snippets yapfify yaml-mode xterm-color xah-fly-keys ws-butler writeroom-mode winum white-sand-theme which-key wgrep web-mode web-beautify vterm volatile-highlights vmd-mode vi-tilde-fringe uuidgen use-package unicode-fonts unfill underwater-theme ujelly-theme typo twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired toxi-theme toc-org tide terminal-here tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit systemd symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection stickyfunc-enhance srefactor sqlup-mode sql-indent spaceline-all-the-icons spacegray-theme soothe-theme solidity-flycheck solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smex smeargle slime-company slim-mode shell-pop seti-theme seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe rjsx-mode reverse-theme reveal-in-osx-finder restart-emacs rebecca-theme rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme racket-mode pytest pyim pyenv-mode py-isort purple-haze-theme pug-mode professional-theme prettier-js posframe popwin poet-theme planet-theme pippel pipenv pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme password-generator paradox pangu-spacing ox-gfm overseer osx-trash osx-dictionary osx-clipboard orgit organic-green-theme org-superstar org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-restclient ob-http ob-elixir nodejs-repl noctilux-theme nginx-mode naquadah-theme nameless mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme mmm-mode minitest minimal-theme material-theme markdown-toc majapahit-theme magit-svn magit-section magit-gitflow madhat2r-theme lush-theme lsp-ui lsp-python-ms lsp-ivy lorem-ipsum livid-mode live-py-mode link-hint light-soap-theme launchctl kubernetes-tramp kubernetes-evil kaolin-themes json-navigator js2-refactor js-doc jinja2-mode jbeans-theme jazz-theme ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra ir-black-theme insert-shebang inkpot-theme indent-guide importmagic impatient-mode ibuffer-projectile hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helpful helm-make hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme fuzzy font-lock+ flyspell-popup flyspell-correct-ivy flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flycheck-credo flycheck-bashate flx-ido flatui-theme flatland-theme fish-mode find-by-pinyin-dired fill-column-indicator farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emr emmet-mode elisp-slime-nav editorconfig dumb-jump dracula-theme dotenv-mode doom-themes dockerfile-mode docker django-theme disaster diminish devdocs dash-at-point darktooth-theme darkokai-theme darkmine-theme darkburn-theme dap-mode dakrone-theme cython-mode cyberpunk-theme cpp-auto-include counsel-projectile counsel-dash counsel-css copy-as-format company-ycmd company-web company-tabnine company-statistics company-shell company-rtags company-restclient company-quickhelp company-go company-c-headers company-ansible company-anaconda common-lisp-snippets command-log-mode column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-identifiers-mode clues-theme clean-aindent-mode chruby chocolate-theme chinese-conv cherry-blossom-theme centered-cursor-mode ccls busybee-theme bundler bubbleberry-theme blacken birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ansible-doc ansible ample-zen-theme ample-theme alect-themes alchemist aggressive-indent ag afternoon-theme add-node-modules-path ace-pinyin ace-link ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
