@@ -5,9 +5,10 @@ echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.zshrc
 
 # Install racer
 rustup toolchain install nightly
+rustup default nightly
 rustup component add rust-src
 cargo +nightly install racer
-echo 'export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"' >> ~/.zshrc
+# echo 'export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"' >> ~/.zshrc
 
 cargo install cargo-edit
 cargo install cargo-audit

@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp; lexical-binding: t -*-
+
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(;; ----------------------------------------------------------------
+   '(
+     ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
@@ -41,9 +42,9 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Chat
      ;; ----------------------------------------------------------------
-     (erc :variables
-          erc-enable-notifications t
-          erc-enable-sasl-auth t)
+     ;; (erc :variables
+     ;;      erc-enable-notifications t
+     ;;      erc-enable-sasl-auth t)
 
      ;; ----------------------------------------------------------------
      ;; Checkers
@@ -99,7 +100,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Frameworks
      ;; ----------------------------------------------------------------
-     phoenix
+     ;; phoenix
      react
      (vue :variables vue-backend 'lsp)
 
@@ -113,16 +114,16 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Programming and markup languages
      ;; ----------------------------------------------------------------
-     (c-c++ :variables =c-c++-backend= 'lsp-clangd)
+     ;; (c-c++ :variables =c-c++-backend= 'lsp-clangd)
      ;; clojure
-     common-lisp
+     ;; common-lisp
      ;; csharp
-     (elixir :variables elixir-backend 'alchemist)
+     ;; (elixir :variables elixir-backend 'alchemist)
      ;; elm
      emacs-lisp
      ;; erlang
      ;; fsharp
-     go
+     (go :variables go-tab-width 4)
      ;; haskell
      (html :variables
            web-fmt-tool 'prettier
@@ -145,13 +146,14 @@ This function should only modify configuration layer settings."
            json-fmt-tool 'prettier
            json-fmt-on-save t)
      (markdown :variables
-               markdown-live-preview-engine 'vmd
                markdown-mmm-auto-modes '("c" "c++" "javascript" "python" "typescript" ("elisp" "emacs-lisp")))
      ;; purescript
-     (python :variables python-backend 'anaconda)
-     racket
-     (ruby :variables ruby-backend 'robe)
-     (rust :variables rust-backend 'racer)
+     ;; (python :variables python-backend 'anaconda)
+     ;; racket
+     ;; (ruby :variables ruby-backend 'robe)
+     (rust :variables
+           rust-backend 'racer
+           rust-format-on-save t)
      ;; scala
      (shell-scripts :variables shell-scripts-backend nil)
      (solidity :variables
@@ -194,7 +196,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Readers
      ;; ----------------------------------------------------------------
-     (dash :variables dash-autoload-common-docsets t)
+     ;; (dash :variables dash-autoload-common-docsets t)
      ;; pdf
 
      ;; ----------------------------------------------------------------
@@ -215,10 +217,10 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Themes
      ;; ----------------------------------------------------------------
-     (colors :variables
-             ;; colors-colorize-identifiers 'all
-             colors-enable-nyan-cat-progress-bar (display-graphic-p))
-     themes-megapack
+     ;; (colors :variables
+     ;;         ;; colors-colorize-identifiers 'all
+     ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))
+     ;; themes-megapack
 
      ;; ----------------------------------------------------------------
      ;; Tools
@@ -227,13 +229,13 @@ This function should only modify configuration layer settings."
      ;; bm
      ;; (chrome :variables chrome-exec-path "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
      command-log
-     dap
+     ;; dap
      (docker :variables docker-dockerfile-backend 'lsp)
      ;; dotnet
      imenu-list
-     kubernetes
+     ;; kubernetes
      lsp
-     nginx
+     ;; nginx
      (node :variables node-add-modules-path t)
      ;; pandoc
      prettier
@@ -304,9 +306,9 @@ It should only modify the values of Spacemacs settings."
    ;; portable dumper in the cache directory under dumps sub-directory.
    ;; To load it when starting Emacs add the parameter `--dump-file'
    ;; when invoking Emacs 27.1 executable on the command line, for instance:
-   ;;   ./emacs --dump-file=~/.emacs.d/.cache/dumps/spacemacs.pdmp
-   ;; (default spacemacs.pdmp)
-   dotspacemacs-emacs-dumper-dump-file "spacemacs.pdmp"
+   ;;   ./emacs --dump-file=$HOME/.emacs.d/.cache/dumps/spacemacs-27.1.pdmp
+   ;; (default (format "spacemacs-%s.pdmp" emacs-version))
+   dotspacemacs-emacs-dumper-dump-file (format "spacemacs-%s.pdmp" emacs-version)
 
    ;; If non-nil ELPA repositories are contacted via HTTPS whenever it's
    ;; possible. Set it to nil if you have no way to use HTTPS in your
@@ -326,9 +328,18 @@ It should only modify the values of Spacemacs settings."
    ;; (default '(100000000 0.1))
    dotspacemacs-gc-cons '(100000000 0.1)
 
+   ;; Set `read-process-output-max' when startup finishes.
+   ;; This defines how much data is read from a foreign process.
+   ;; Setting this >= 1 MB should increase performance for lsp servers
+   ;; in emacs 27.
+   ;; (default (* 1024 1024))
+   dotspacemacs-read-process-output-max (* 1024 1024)
+
    ;; If non-nil then Spacelpa repository is the primary source to install
    ;; a locked version of packages. If nil then Spacemacs will install the
-   ;; latest version of packages from MELPA. (default nil)
+   ;; latest version of packages from MELPA. Spacelpa is currently in
+   ;; experimental state please use only for testing purposes.
+   ;; (default nil)
    dotspacemacs-use-spacelpa nil
 
    ;; If non-nil then verify the signature for downloaded Spacelpa archives.
@@ -353,6 +364,11 @@ It should only modify the values of Spacemacs settings."
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
    dotspacemacs-editing-style 'emacs
+
+   ;; If non-nil show the version string in the Spacemacs buffer. It will
+   ;; appear as (spacemacs version)@(emacs version)
+   ;; (default t)
+   dotspacemacs-startup-buffer-show-version t
 
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
@@ -436,8 +452,10 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-major-mode-leader-key ","
 
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m")
-   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   ;; (default "C-M-m" for terminal mode, "<M-return>" for GUI mode).
+   ;; Thus M-RET should work as leader key in both GUI and terminal modes.
+   ;; C-M-m also should work in terminal mode, but not in GUI mode.
+   dotspacemacs-major-mode-emacs-leader-key (if window-system "<M-return>" "C-M-m")
 
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs `C-i', `TAB' and `C-m', `RET'.
@@ -530,6 +548,7 @@ It should only modify the values of Spacemacs settings."
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
    dotspacemacs-inactive-transparency 90
+
    ;; If non-nil show the titles of transient states. (default t)
    dotspacemacs-show-transient-state-title t
 
@@ -634,6 +653,20 @@ It should only modify the values of Spacemacs settings."
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
 
+   ;; If non nil activate `clean-aindent-mode' which tries to correct
+   ;; virtual indentation of simple modes. This can interfer with mode specific
+   ;; indent handling like has been reported for `go-mode'.
+   ;; If it does deactivate it here.
+   ;; (default t)
+   dotspacemacs-use-clean-aindent-mode t
+
+   ;; If non-nil shift your number row to match the entered keyboard layout
+   ;; (only in insert state). Currently supported keyboard layouts are:
+   ;; `qwerty-us', `qwertz-de' and `querty-ca-fr'.
+   ;; New layouts can be added in `spacemacs-editing' layer.
+   ;; (default nil)
+   dotspacemacs-swap-number-row nil
+
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
    dotspacemacs-zone-out-when-idle nil
@@ -641,7 +674,11 @@ It should only modify the values of Spacemacs settings."
    ;; Run `spacemacs/prettify-org-buffer' when
    ;; visiting README.org files of Spacemacs.
    ;; (default nil)
-   dotspacemacs-pretty-docs nil))
+   dotspacemacs-pretty-docs nil
+
+   ;; If nil the home buffer shows the full path of agenda items
+   ;; and todos. If non nil only the file name is shown.
+   dotspacemacs-home-shorten-agenda-source nil))
 
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
@@ -680,23 +717,3 @@ before packages are loaded."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (toml-mode racer helm-gtags helm helm-core ggtags flycheck-rust counsel-gtags cargo rust-mode zenburn-theme zen-and-art-theme youdao-dictionary yasnippet-snippets yapfify yaml-mode xterm-color xah-fly-keys ws-butler writeroom-mode winum white-sand-theme which-key wgrep web-mode web-beautify vterm volatile-highlights vmd-mode vi-tilde-fringe uuidgen use-package unicode-fonts unfill underwater-theme ujelly-theme typo twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired toxi-theme toc-org tide terminal-here tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit systemd symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection stickyfunc-enhance srefactor sqlup-mode sql-indent spaceline-all-the-icons spacegray-theme soothe-theme solidity-flycheck solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smex smeargle slime-company slim-mode shell-pop seti-theme seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe rjsx-mode reverse-theme reveal-in-osx-finder restart-emacs rebecca-theme rbenv rake rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme racket-mode pytest pyim pyenv-mode py-isort purple-haze-theme pug-mode professional-theme prettier-js posframe popwin poet-theme planet-theme pippel pipenv pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme password-generator paradox pangu-spacing ox-gfm overseer osx-trash osx-dictionary osx-clipboard orgit organic-green-theme org-superstar org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-brain open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-restclient ob-http ob-elixir nodejs-repl noctilux-theme nginx-mode naquadah-theme nameless mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme mmm-mode minitest minimal-theme material-theme markdown-toc majapahit-theme magit-svn magit-section magit-gitflow madhat2r-theme lush-theme lsp-ui lsp-python-ms lsp-ivy lorem-ipsum livid-mode live-py-mode link-hint light-soap-theme launchctl kubernetes-tramp kubernetes-evil kaolin-themes json-navigator js2-refactor js-doc jinja2-mode jbeans-theme jazz-theme ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra ir-black-theme insert-shebang inkpot-theme indent-guide importmagic impatient-mode ibuffer-projectile hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helpful helm-make hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme fuzzy font-lock+ flyspell-popup flyspell-correct-ivy flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flycheck-credo flycheck-bashate flx-ido flatui-theme flatland-theme fish-mode find-by-pinyin-dired fill-column-indicator farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emr emmet-mode elisp-slime-nav editorconfig dumb-jump dracula-theme dotenv-mode doom-themes dockerfile-mode docker django-theme disaster diminish devdocs dash-at-point darktooth-theme darkokai-theme darkmine-theme darkburn-theme dap-mode dakrone-theme cython-mode cyberpunk-theme cpp-auto-include counsel-projectile counsel-dash counsel-css copy-as-format company-ycmd company-web company-tabnine company-statistics company-shell company-rtags company-restclient company-quickhelp company-go company-c-headers company-ansible company-anaconda common-lisp-snippets command-log-mode column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-identifiers-mode clues-theme clean-aindent-mode chruby chocolate-theme chinese-conv cherry-blossom-theme centered-cursor-mode ccls busybee-theme bundler bubbleberry-theme blacken birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ansible-doc ansible ample-zen-theme ample-theme alect-themes alchemist aggressive-indent ag afternoon-theme add-node-modules-path ace-pinyin ace-link ac-ispell))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-)
