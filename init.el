@@ -1,4 +1,4 @@
-
+;; -*- mode: emacs-lisp; lexical-binding: t -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -49,10 +49,10 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Checkers
      ;; ----------------------------------------------------------------
-     (spell-checking :variables
-                     spell-checking-enable-by-default nil
-                     spell-checking-enable-auto-dictionary t
-                     enable-flyspell-auto-completion t)
+     ;; (spell-checking :variables
+     ;;                 spell-checking-enable-by-default nil
+     ;;                 spell-checking-enable-auto-dictionary t
+     ;;                 enable-flyspell-auto-completion t)
      (syntax-checking :variables
                       syntax-checking-enable-tooltips t
                       syntax-checking-enable-by-default t
@@ -81,21 +81,21 @@ This function should only modify configuration layer settings."
                       better-defaults-move-to-beginning-of-code-first t
                       better-defaults-move-to-end-of-code-first nil)
      helpful
-     (ibuffer :variables ibuffer-group-buffers-by 'modes)
+     ;; (ibuffer :variables ibuffer-group-buffers-by 'modes)
      (org :variables org-enable-github-support t)
      semantic
-     (typography :variables typography-enable-typographic-editing t)
+     ;; (typography :variables typography-enable-typographic-editing t)
 
      ;; ----------------------------------------------------------------
      ;; Filetree
      ;; ----------------------------------------------------------------
      ;; neotree
-     treemacs
+     ;; treemacs
 
      ;; ----------------------------------------------------------------
      ;; Font
      ;; ----------------------------------------------------------------
-     (unicode-fonts :variables unicode-fonts-force-multi-color-on-mac t)
+     ;; (unicode-fonts :variables unicode-fonts-force-multi-color-on-mac t)
 
      ;; ----------------------------------------------------------------
      ;; Frameworks
@@ -146,23 +146,23 @@ This function should only modify configuration layer settings."
            json-fmt-tool 'prettier
            json-fmt-on-save t)
      (markdown :variables
-               markdown-mmm-auto-modes '("c" "c++" "javascript" "python" "typescript" ("elisp" "emacs-lisp")))
+               markdown-mmm-auto-modes '("javascript" "typescript" ("emacs-lisp")))
      ;; purescript
      ;; (python :variables python-backend 'anaconda)
      ;; racket
      ;; (ruby :variables ruby-backend 'robe)
      (rust :variables
-           rust-backend 'racer
+           rust-backend 'lsp
            rust-format-on-save t)
      ;; scala
      (shell-scripts :variables shell-scripts-backend nil)
      (solidity :variables
                solidity-flycheck-solc-checker-active t
                solidity-flycheck-solium-checker-active nil)
-     (sql :variables
-          sql-capitalize-keywords t
-          sql-capitalize-keywords-blacklist '("name" "varchar")
-          sql-auto-indent t)
+     ;; (sql :variables
+     ;;      sql-capitalize-keywords t
+     ;;      sql-capitalize-keywords-blacklist '("name" "varchar")
+     ;;      sql-auto-indent t)
      (typescript :variables
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'prettier
@@ -177,7 +177,7 @@ This function should only modify configuration layer settings."
      (multiple-cursors :variables
                        multiple-cursors-backend 'mc
                        mc/cmds-to-run-once '(upcase-region))
-     copy-as-format
+     ;; copy-as-format
      ;; parinfer
 
      ;; ----------------------------------------------------------------
@@ -225,16 +225,16 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Tools
      ;; ----------------------------------------------------------------
-     ansible
+     ;; ansible
      ;; bm
      ;; (chrome :variables chrome-exec-path "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-     command-log
-     ;; dap
-     (docker :variables docker-dockerfile-backend 'lsp)
+     ;; command-log
+     dap
+     ;; (docker :variables docker-dockerfile-backend 'lsp)
      ;; dotnet
      imenu-list
      ;; kubernetes
-     lsp
+     (lsp :variables lsp-rust-server 'rust-analyzer)
      ;; nginx
      (node :variables node-add-modules-path t)
      ;; pandoc
@@ -243,11 +243,11 @@ This function should only modify configuration layer settings."
      restclient
      (shell :variables
             shell-default-shell 'eshell
-            shell-default-height 30
+            shell-default-height 20
             shell-default-position 'bottom
-            ;; shell-default-full-span nil
+            shell-default-full-span nil
             shell-enable-smart-eshell t)
-     systemd
+     ;; systemd
      ;; vagrant
 
      ;; ----------------------------------------------------------------
@@ -266,7 +266,9 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(doom-themes poet-theme ag)
+   dotspacemacs-additional-packages '(doom-themes
+                                      ;; poet-theme
+                                      ag)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -405,13 +407,17 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-city-lights
-                         twilight-bright
-                         hemisu-light
+   dotspacemacs-themes '(
+                         doom-one
+                         ;; default
+                         ;; spacemacs-dark
+                         ;; spacemacs-light
+                         ;; doom-city-lights
+                         ;; twilight-bright
+                         ;; hemisu-light
                          ;; dichromacy
                          ;; poet-dark
-                         spacemacs-light
-                         spacemacs-dark)
+			 )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -420,16 +426,20 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   ;; dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(vanilla)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Menlo"
+   dotspacemacs-default-font '(
+                               ;; "monospace"
+                               ;; "Source Code Pro"
+                               "Menlo"
                                ;; "Iosevka"
-                               :size 17.0
+                               :size 14.0
                                :weight normal
                                :width normal)
 
@@ -585,7 +595,7 @@ It should only modify the values of Spacemacs settings."
    ;; (default nil)
    dotspacemacs-line-numbers nil
 
-   ;; Code folding method. Possible values are `evil' and `origami'.
+   ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
 
